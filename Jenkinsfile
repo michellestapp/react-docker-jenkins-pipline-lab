@@ -41,6 +41,6 @@ pipeline{
                 docker build -t michellestapp/react-docker-jenkins-pipeline-lab:latest .
                 '''
             }
-        })
+        }
     }
 }
