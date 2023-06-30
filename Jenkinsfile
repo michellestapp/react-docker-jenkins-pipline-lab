@@ -22,7 +22,7 @@ pipeline{
 
             steps{
 
-                sh 'echo "Building optimized react production files..."'
+                sh 'echo "Building optimized React production files..."'
                 sh 'npm run build'
             
             }
