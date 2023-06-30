@@ -27,5 +27,20 @@ pipeline{
             
             }
         }
+
+        stage('Build Docker Image' {
+
+            steps {
+                script {
+                    def dockerTool = tool name: 'docker-latest-tool', type: 'org.jenkinsci.plugins.docker.commons.tools.DockerTool'
+                    env.PATH = "${dockerTool}/bin:${env.PATH}'
+                }
+
+                sh '''
+                echo "Building Docker image..."
+                docker build -t michellestapp/react-docker-jenkins-pipeline-lab:latest .
+                '''
+            }
+        })
     }
 }
