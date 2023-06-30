@@ -48,13 +48,15 @@ pipeline{
             steps {
 
                 withCredentials([usernamePassword(credentialsId:'personal docker credentials', usernameVariable: 'DOCKER_USERNAME', passwordVariable: 'DOCKER_PASSWORD')])
+                
+                sh'''
+                echo "Pushing Docker image to Docker Hub..."
+                echo $DOCKER_USERNAME
+                docker --version
+                '''
             }
 
-            sh'''
-            echo "Pushing Docker image to Docker Hub..."
-            echo $DOCKER_USERNAME
-            docker --version
-            '''
+
             }
         }
     }
