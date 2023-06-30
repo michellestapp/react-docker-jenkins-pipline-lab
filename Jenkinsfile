@@ -47,14 +47,14 @@ pipeline{
 
             steps {
 
-                withCredentials([usernamePassword(credentialsId:'personal docker credentials', usernameVariable: 'DOCKER_USERNAME', passwordVariable: 'DOCKER_PASSWORD')]){
+                withCredentials([usernamePassword(credentialsId:'personal-docker-credentials', usernameVariable: 'DOCKER_USERNAME', passwordVariable: 'DOCKER_PASSWORD')]){
                     sh 'docker login -u ${DOCKER_USERNAME} -p ${DOCKER_PASSWORD}'
                 }
                 
                 sh'''
                 echo "Pushing Docker image to Docker Hub..."
-                echo $DOCKER_USERNAME
                 docker --version
+                docker push michellestapp/react-docker-jenkins-pipeline-lab:latest
                 '''
             }
 
