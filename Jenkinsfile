@@ -16,9 +16,16 @@ pipeline{
                 sh 'npm install'
 
             }
+        }
 
+        stage('Build Optimized React Production Files'){
 
+            steps{
 
+                sh 'echo "Building optimized react production files..."'
+                sh 'npm run build'
+            
+            }
         }
     }
 }
